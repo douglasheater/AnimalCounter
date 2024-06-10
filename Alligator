@@ -1,0 +1,19 @@
+package animalCounter;
+
+public class Alligator extends Animal 
+{
+	public Alligator()
+	{
+		count = 0;
+	}
+	
+	@Override
+	void incrementCount(Animal sheep)
+	{
+		count++;
+		if(sheep.getCount() > 0)
+		{
+			sheep.count--;
+		}
+	}
+}
