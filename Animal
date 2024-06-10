@@ -1,0 +1,23 @@
+package animalCounter;
+
+public abstract class Animal 
+{
+	int count;
+	
+	void resetCount()
+	{
+		count = 0;
+	}
+	
+	int getCount()
+	{
+		return count;
+	}
+	
+	void incrementCount(Animal animal)
+	{
+		animal.count++;
+	}
+	
+}
+
