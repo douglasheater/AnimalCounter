@@ -1,0 +1,14 @@
+package animalCounter;
+
+public class AnimalCounterGUIApp {
+
+	public static void main(String[] args) 
+	{
+		Alligator alligator = new Alligator();
+		Sheep sheep = new Sheep();
+		
+		AnimalCounterGUI gui = new AnimalCounterGUI(alligator, sheep);
+
+	}
+
+}
