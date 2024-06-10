@@ -1,0 +1,98 @@
+package animalCounter;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
+
+public class AnimalCounterGUI extends JFrame
+{
+	public AnimalCounterGUI(Animal alligator, Animal sheep)
+	{
+		super("Animal Counter");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    setSize(360, 400);
+		FlowLayout manager = new FlowLayout();
+		setLayout(manager);
+		JOptionPane message = new JOptionPane();
+		message.setMessage("Welcome to the Animal Counter.");
+		add(message);
+		JButton alligatorAdd = new JButton("Add Alligator");
+		alligatorAdd.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				alligator.incrementCount(sheep);
+			}
+			
+		});
+		add(alligatorAdd);
+		
+		JButton sheepAdd = new JButton("Add Sheep");
+		sheepAdd.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				sheep.incrementCount(sheep);
+			}
+			
+		});
+		add(sheepAdd);
+		
+		JButton displayCounts = new JButton("Display Counts");
+		displayCounts.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				message.setMessage("Alligators: " + alligator.getCount() + "\nSheep: " + sheep.getCount());
+				
+			}
+			
+		});
+		add(displayCounts);
+		
+		ButtonGroup group = new ButtonGroup();
+		JRadioButton resetAlligator = new JRadioButton("Alligator");
+		JRadioButton resetSheep = new JRadioButton("Sheep");
+		group.add(resetSheep);
+		group.add(resetAlligator);
+		add(resetSheep);
+		add(resetAlligator);
+	
+		JButton resetCount = new JButton("Reset Count");
+		resetCount.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				if(resetAlligator.isSelected())
+				{
+					alligator.resetCount();
+				}
+				if(resetSheep.isSelected())
+				{
+					sheep.resetCount();
+				}
+			}
+			
+		});
+		add(resetCount);
+		
+		JButton exit = new JButton("Exit");
+		exit.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				System.exit(0);
+			}
+			
+		});
+		add(exit);
+		setVisible(true);
+		
+	}
+}
