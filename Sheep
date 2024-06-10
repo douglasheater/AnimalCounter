@@ -1,0 +1,16 @@
+package animalCounter;
+
+public class Sheep extends Animal 
+{
+	public Sheep()
+	{
+		count = 0;
+	}
+	
+	@Override
+	void incrementCount(Animal sheep)
+	{
+		count++;
+		count++;
+	}
+}
